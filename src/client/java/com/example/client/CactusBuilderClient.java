@@ -35,7 +35,7 @@ public class CactusBuilderClient implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.player == null || client.level == null) return;
 
-            long window = client.getWindow().gethandle();
+            long window = client.getWindow().handle();
 
             boolean alt = key(window, GLFW.GLFW_KEY_LEFT_ALT)
                        || key(window, GLFW.GLFW_KEY_RIGHT_ALT);
@@ -153,7 +153,7 @@ public class CactusBuilderClient implements ClientModInitializer {
     }
 
     private static void message(Minecraft client, String text) {
-        client.player.displayClientMessage(
+        client.gui.setOverlayMessage(
             Component.literal(text), false
         );
     }
